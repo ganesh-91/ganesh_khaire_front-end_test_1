@@ -13,10 +13,17 @@ const computeSum = function (char) {
 }
 
 // function for getting sum from string
-const parseString = function (string) {
+function parseString(string) {
+    
+    var funcArr = [];
     string.split('').map((char) => {
-        console.log(computeSum(char));
+        funcArr.push(computeSum(char))
     });
+    
+    Promise.all(funcArr)
+        .then((...result) => {
+            console.log(result)
+        });
 }
 
 // function for getting char from number
@@ -27,5 +34,14 @@ const findChar = function (number) {
         }
     })
 }
+
+
+// // function for getting sum from string
+// const parseString = function (string) {
+// string.split('').map((char) => {
+//     console.log(computeSum(char));
+// });
+// }
+
 
 
